@@ -1,0 +1,21 @@
+# Archivos y carpetas generados por CMake
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Archivos y carpetas generados por el compilador
+*.o
+*.obj
+*.exe
+
+# Archivos y carpetas generados por el editor de texto
+.vscode/
+*.swp
+*.swo
+
+# Archivos y carpetas específicos de tu proyecto que desees ignorar
+# nombre_del_archivo.extension
+# nombre_de_la_carpeta/

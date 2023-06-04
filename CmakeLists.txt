@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.12)
+
+project(ProyectoFinalLDP)
+
+# Agrega aquí las configuraciones y opciones de compilación
+
+# Agrega aquí la lista de archivos fuente de tu proyecto
+
+add_executable(ProyectoEjecutable main.cpp Empleado.cpp)
