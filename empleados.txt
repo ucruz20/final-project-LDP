@@ -1,3 +1,5 @@
+Tecnico,Jose ,Pérez, 123 Main St, 01/05/1990, Masculino
+Tecnico,Marcos ,Pérez, 123 Main St, 01/05/1990, Masculino
 Gerente,Juan ,Pérez, 123 Main St, 01/05/1990, Masculino
 Tecnico,María ,López, 456 Elm St, 15/07/1995, Femenino
 JefeDeArea,Pedro ,González, 789 Oak St, 20/10/1985, Masculino
@@ -6,3 +8,4 @@ Tecnico,Luis ,Martínez, 654 Cedar St, 12/09/1998, Masculino
 Tecnico,Laura ,García, 321 Birch St, 25/11/1993, Femenino
 Gerente,edgardo,alfaro,new york,05/5/1993,masculino
 Tecnico,Ernesto,Morales,guadalajara,10/15/1995,masculino
+Tecnico,Martin,Rosales,Washington,05/11/1999,masculino

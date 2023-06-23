@@ -4,77 +4,113 @@
 #include <iostream>
 #include <string>
 
-class Empleado {
-public:
-    std::string nombre;
-    std::string apellido;
-    std::string direccion;
-    std::string fechaNacimiento;
-    std::string sexo;
+using namespace std;
+
+class Empleado
+{
+protected:
+    string nombre;
+    string direccion;
+    string fechaNacimiento;
+    string sexo;
+    string apellido;
+    double salario;
+    string rol;
 
 public:
-    Empleado(const std::string& nombre,const std::string& apellido, const std::string& direccion, const std::string& fechaNacimiento, const std::string& sexo)
-        : nombre(nombre), apellido(apellido), direccion(direccion), fechaNacimiento(fechaNacimiento), sexo(sexo) {}
+    Empleado(string &nombre, string &direccion, string &fechaNacimiento, string &sexo, string &apellido, double salario=0.0, string rol="")
+        : nombre(nombre), direccion(direccion), fechaNacimiento(fechaNacimiento), sexo(sexo), apellido(apellido), salario(salario), rol(rol) {}
 
     virtual ~Empleado() {}
 
-    virtual double calcularSalario() const = 0;
+    virtual double calcularSalario();
 
-};
+    virtual string getJerarquia() = 0;
 
-class Gerente : public Empleado {
-private:
-    double sueldo;
-public:
-    Gerente(const std::string& nombre,const std::string& apellido, const std::string& direccion, const std::string& fechaNacimiento, const std::string& sexo)
-        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo), sueldo(5000.0) {}
+    string getNombre() const {
+        return nombre;
+    }
 
-    double calcularSalario() const {
-        // Realizar cálculos para el salario del gerente con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+    string getDireccion() const {
+        return direccion;
+    }
+
+    string getFechaNacimiento() const {
+        return fechaNacimiento;
+    }
+
+    string getSexo() const {
+        return sexo;
+    }
+    string getApellido() const{
+        return apellido;
+    }
+
+    double getSueldo()const{
+        return salario;
+    }
+    string getRol() const{
+        return rol;
     }
 
 };
 
-class Tecnico : public Empleado {
+class Gerente : public Empleado
+{
+
+public:
+    Gerente(string &nombre, string &direccion, string &fechaNacimiento, string &sexo, string &apellido)
+        : Empleado(nombre, direccion, fechaNacimiento, sexo, apellido) {
+            salario = 500;
+            rol="Gerente";
+        }
+
+    string getJerarquia() override {
+        return "Gerente";
+    }
+};
+
+class Tecnico : public Empleado
+{
 private:
     double sueldo;
+
 public:
-    Tecnico(const std::string& nombre,const std::string& apellido, const std::string& direccion, const std::string& fechaNacimiento, const std::string& sexo)
-        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo), sueldo(350.0) {}
+    Tecnico(string &nombre, string &direccion, string &fechaNacimiento, string &sexo, string &apellido)
+        : Empleado(nombre, direccion, fechaNacimiento, sexo, apellido), sueldo(350.0) {}
 
-    double calcularSalario() const {
-        // Realizar cálculos para el salario del técnico con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+    string getJerarquia() override {
+        return "Técnico";
     }
-
 
 };
 
-class JefeDeArea : public Empleado {
+class JefeDeArea : public Empleado
+{
 private:
     double sueldo;
-public:
-    JefeDeArea(const std::string& nombre,const std::string& apellido, const std::string& direccion, const std::string& fechaNacimiento, const std::string& sexo)
-        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo), sueldo(1500.0) {}
 
-    double calcularSalario() const {
-        // Realizar cálculos para el salario del jefe de área con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+public:
+    JefeDeArea(string &nombre, string &direccion, string &fechaNacimiento, string &sexo, string &apellido)
+        : Empleado(nombre, direccion, fechaNacimiento, sexo, apellido), sueldo(1500.0) {}
+
+    string getJerarquia() override {
+        return "Jefe de Área";
     }
 
 };
 
-class Supervisor : public Empleado {
+class Supervisor : public Empleado
+{
 private:
     double sueldo;
-public:
-    Supervisor(const std::string& nombre,const std::string& apellido, const std::string& direccion, const std::string& fechaNacimiento, const std::string& sexo)
-        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo), sueldo(750.0) {}
 
-    double calcularSalario() const {
-        // Realizar cálculos para el salario del supervisor con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+public:
+    Supervisor(string &nombre, string &direccion, string &fechaNacimiento, string &sexo, string &apellido)
+        : Empleado(nombre, direccion, fechaNacimiento, sexo, apellido),  sueldo(750.0) {}
+
+    string getJerarquia() override {
+        return "Supervisor";
     }
 
 };
