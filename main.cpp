@@ -246,4 +246,3 @@ cout << "Género: " << supervisor->sexo << endl;
 cout << "--------------------------------" << endl;
 }
 }
-*/

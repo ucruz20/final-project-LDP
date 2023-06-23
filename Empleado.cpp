@@ -67,7 +67,7 @@ public:
 
     double calcularSalario() override {
         // Realizar cálculos para el salario del técnico con descuentos
-        double sueldo = 2500.0; // Ejemplo de sueldo base para un técnico
+        double sueldo = 350.0; // Ejemplo de sueldo base para un técnico
         double salarioBruto = sueldo;
         double salarioNeto = calcularSalarioNeto(salarioBruto);
         return salarioNeto;
@@ -75,6 +75,63 @@ public:
 
     string getJerarquia() override {
         return "Técnico";
+    }
+
+    double calcularSalarioNeto(double salarioBruto) {
+        // Cálculos de descuentos, base imponible, impuesto sobre la renta, etc.
+        // Aquí se deben realizar los cálculos reales para el salario neto del técnico.
+        // Se incluye un ejemplo básico:
+        double descuentoISSS = salarioBruto * 0.075;
+        double descuentoAFP = salarioBruto * 0.0775;
+        double salarioNeto = salarioBruto - descuentoISSS - descuentoAFP;
+        return salarioNeto;
+    }
+};
+class Supervisor : public Empleado {
+public:
+    Supervisor(const string& nombre, const string& apellido, const string& direccion,
+            const string& fechaNacimiento, const string& sexo)
+        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo) {}
+
+    double calcularSalario() override {
+        // Realizar cálculos para el salario del Supervisor con descuentos
+        double sueldo = 750.0; // Ejemplo de sueldo base para un técnico
+        double salarioBruto = sueldo;
+        double salarioNeto = calcularSalarioNeto(salarioBruto);
+        return salarioNeto;
+    }
+
+    string getJerarquia() override {
+        return "Supervisor";
+    }
+
+    double calcularSalarioNeto(double salarioBruto) {
+        // Cálculos de descuentos, base imponible, impuesto sobre la renta, etc.
+        // Aquí se deben realizar los cálculos reales para el salario neto del técnico.
+        // Se incluye un ejemplo básico:
+        double descuentoISSS = salarioBruto * 0.075;
+        double descuentoAFP = salarioBruto * 0.0775;
+        double salarioNeto = salarioBruto - descuentoISSS - descuentoAFP;
+        return salarioNeto;
+    }
+};
+
+class Jefedearea : public Empleado {
+public:
+    Jefedearea(const string& nombre, const string& apellido, const string& direccion,
+            const string& fechaNacimiento, const string& sexo)
+        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo) {}
+
+    double calcularSalario() override {
+        // Realizar cálculos para el salario del Jefe de area con descuentos
+        double sueldo = 1500.0; // Ejemplo de sueldo base para un técnico
+        double salarioBruto = sueldo;
+        double salarioNeto = calcularSalarioNeto(salarioBruto);
+        return salarioNeto;
+    }
+
+    string getJerarquia() override {
+        return "Jefedearea";
     }
 
     double calcularSalarioNeto(double salarioBruto) {
