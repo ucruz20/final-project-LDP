@@ -1,96 +1,89 @@
 #include <iostream>
-#include <string>
-
+#include <fstream>
+#include <vector>
 using namespace std;
 
-class Empleado
-{
+class Empleado {
 protected:
     string nombre;
+    string apellido;
     string direccion;
     string fechaNacimiento;
     string sexo;
 
 public:
-    Empleado(string &nombre, string &direccion, string &fechaNacimiento, string &sexo)
-        : nombre(nombre), direccion(direccion), fechaNacimiento(fechaNacimiento), sexo(sexo) {}
-
-    virtual ~Empleado() {}
+    Empleado(const string& nombre, const string& apellido, const string& direccion,
+             const string& fechaNacimiento, const string& sexo)
+        : nombre(nombre), apellido(apellido), direccion(direccion),
+          fechaNacimiento(fechaNacimiento), sexo(sexo) {}
 
     virtual double calcularSalario() = 0;
 
+    string getNombre() const { return nombre; }
+    string getApellido() const { return apellido; }
+    string getDireccion() const { return direccion; }
+    string getFechaNacimiento() const { return fechaNacimiento; }
+    string getSexo() const { return sexo; }
+
     virtual string getJerarquia() = 0;
 
+    virtual ~Empleado() {}
 };
 
-class Gerente : public Empleado
-{
-private:
-    double sueldo;
-
+class Gerente : public Empleado {
 public:
-    Gerente(string &nombre, string &direccion, string &fechaNacimiento, string &sexo)
-        : Empleado(nombre, direccion, fechaNacimiento, sexo), sueldo(5000.0) {}
+    Gerente(const string& nombre, const string& apellido, const string& direccion,
+            const string& fechaNacimiento, const string& sexo)
+        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo) {}
 
-    double calcularSalario() override
-    {
+    double calcularSalario() override {
         // Realizar cálculos para el salario del gerente con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+        double sueldo = 5000.0; // Ejemplo de sueldo base para un gerente
+        double salarioBruto = sueldo;
+        double salarioNeto = calcularSalarioNeto(salarioBruto);
+        return salarioNeto;
     }
 
- string getJerarquia() override {
+    string getJerarquia() override {
         return "Gerente";
     }
+
+    double calcularSalarioNeto(double salarioBruto) {
+        // Cálculos de descuentos, base imponible, impuesto sobre la renta, etc.
+        // Aquí se deben realizar los cálculos reales para el salario neto del gerente.
+        // Se incluye un ejemplo básico:
+        double descuentoISSS = salarioBruto * 0.075;
+        double descuentoAFP = salarioBruto * 0.0775;
+        double salarioNeto = salarioBruto - descuentoISSS - descuentoAFP;
+        return salarioNeto;
+    }
 };
 
-class Tecnico : public Empleado
-{
-private:
-    double sueldo;
-
+class Tecnico : public Empleado {
 public:
-    Tecnico(string &nombre, string &direccion, string &fechaNacimiento, string &sexo)
-        : Empleado(nombre, direccion, fechaNacimiento, sexo), sueldo(350.0) {}
+    Tecnico(const string& nombre, const string& apellido, const string& direccion,
+            const string& fechaNacimiento, const string& sexo)
+        : Empleado(nombre, apellido, direccion, fechaNacimiento, sexo) {}
 
-    double calcularSalario() override
-    {
+    double calcularSalario() override {
         // Realizar cálculos para el salario del técnico con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+        double sueldo = 2500.0; // Ejemplo de sueldo base para un técnico
+        double salarioBruto = sueldo;
+        double salarioNeto = calcularSalarioNeto(salarioBruto);
+        return salarioNeto;
     }
 
-
-};
-
-class JefeDeArea : public Empleado
-{
-private:
-    double sueldo;
-
-public:
-    JefeDeArea(string &nombre, string &direccion, string &fechaNacimiento, string &sexo)
-        : Empleado(nombre, direccion, fechaNacimiento, sexo), sueldo(1500.0) {}
-
-    double calcularSalario() override
-    {
-        // Realizar cálculos para el salario del jefe de área con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+    string getJerarquia() override {
+        return "Técnico";
     }
 
-};
-
-class Supervisor : public Empleado
-{
-private:
-    double sueldo;
-
-public:
-    Supervisor(string &nombre, string &direccion, string &fechaNacimiento, string &sexo)
-        : Empleado(nombre, direccion, fechaNacimiento, sexo), sueldo(750.0) {}
-
-    double calcularSalario() override
-    {
-        // Realizar cálculos para el salario del supervisor con descuentos
-        return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
+    double calcularSalarioNeto(double salarioBruto) {
+        // Cálculos de descuentos, base imponible, impuesto sobre la renta, etc.
+        // Aquí se deben realizar los cálculos reales para el salario neto del técnico.
+        // Se incluye un ejemplo básico:
+        double descuentoISSS = salarioBruto * 0.075;
+        double descuentoAFP = salarioBruto * 0.0775;
+        double salarioNeto = salarioBruto - descuentoISSS - descuentoAFP;
+        return salarioNeto;
     }
-
 };
