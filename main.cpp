@@ -86,6 +86,18 @@ bool compararPorNombre(const Empleado *emp1, const Empleado *emp2)
     return emp1->getApellido() < emp2->getApellido();
 }
 
+// Comparador para ordenar los empleados de mayor a menor por salario
+bool compararPorSalario(Empleado *emp1, Empleado *emp2)
+{
+    return emp1->calcularSalario() > emp2->calcularSalario();
+}
+
+// Función para ordenar los empleados por salario
+void ordenarEmpleadosPorSalario(vector<Empleado *> &empleados)
+{
+    std::sort(empleados.begin(), empleados.end(), compararPorSalario);
+}
+
 // Función para crear objetos de empleados a partir de un archivo
 vector<Empleado *> crearEmpleadosDesdeArchivo(const string &nombreArchivo)
 {
@@ -168,7 +180,22 @@ int main()
             break;
         case 2:
             // ordenarEmpleadosPorSalario(empleados);
-            cout << "Empleados ordenados por salario." << endl;
+            ordenarEmpleadosPorSalario(empleados);
+            cout << "Empleados ordenados por salario:" << endl;
+            for (const auto &empleado : empleados)
+            {
+                cout << "Apellido: " << empleado->getApellido() << endl;
+                cout << "Nombre: " << empleado->getNombre() << endl;
+                cout << "Dirección: " << empleado->getDireccion() << endl;
+                cout << "Fecha de nacimiento: " << empleado->getFechaNacimiento() << endl;
+                cout << "Género: " << empleado->getSexo() << endl;
+                cout << "Salario base: " << empleado->getSueldo() << endl;
+                cout << "Jerarquia: " << empleado->getRol() << endl;
+                cout << "Salario neto: " << empleado->calcularSalario() << endl;
+                cout << endl;
+            }
+            break;
+
             break;
         case 3:
             // Mostrar la cantidad de objetos por subclase
@@ -188,7 +215,7 @@ int main()
 
         cout << endl;
     } while (opcion != 0);
-    
+
     for (const auto &empleado : empleados)
     {
         delete empleado;

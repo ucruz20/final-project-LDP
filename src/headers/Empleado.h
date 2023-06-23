@@ -24,6 +24,7 @@ public:
           fechaNacimiento(fechaNacimiento), sexo(sexo), sueldo(sueldo), rol(rol) {}
 
     virtual double calcularSalario() = 0;
+     double calcularSalarioNeto(double salario) const;
 
     string getNombre() const { return nombre; }
     string getApellido() const { return apellido; }
