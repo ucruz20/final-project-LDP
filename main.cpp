@@ -1,4 +1,8 @@
-#include "Empleado.h"
+#include "src/headers/Empleado.h"
+#include "src/headers/JefeDeArea.h"
+#include "src/headers/Tecnico.h"
+#include "src/headers/Supervisor.h"
+#include "src/headers/Gerente.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -130,7 +134,7 @@ vector<Empleado *> crearEmpleadosDesdeArchivo(const string &nombreArchivo)
 int main()
 {
     vector<Empleado *> empleados;
-    int opcion, opcion2;
+    int opcion;
 
     // Crear objetos de empleados a partir del archivo "empleados.txt"
 
@@ -192,58 +196,3 @@ int main()
 
     return 0;
 }
-
-// Empleado* empleado1 = new Gerente("John Doe", "123 Main St", "01/01/1990", "Masculino");
-// Empleado* empleado1 = new Gerente("John Doe", "123 Main St", "01/01/1990", "Masculino");
-// Empleado* empleado3 = new JefeDeArea("Mike Johnson", "789 Oak St", "03/03/1985", "Masculino");
-// Empleado* empleado4 = new Supervisor("Amy Davis", "987 Pine St", "04/04/1992", "Femenino");
-
-// Crear instancias de diferentes subclases de Empleado
-
-// Calcular y mostrar el salario de cada empleado
-// cout << "Salario del gerente: $" << empleado1->calcularSalario() << endl;
-// cout << "Salario del técnico: $" << empleado2->calcularSalario() << endl;
-// cout << "Salario del jefe de área: $" << empleado3->calcularSalario() << endl;
-// cout << "Salario del supervisor: $" << empleado4->calcularSalario() << endl;
-
-// Liberar la memoria asignada a los objetos empleados
-// delete empleado1;
-// delete empleado2;
-// delete empleado3;
-// delete empleado4;
-/*for (const auto& empleado : empleados) {
-if (auto gerente = dynamic_cast<Gerente*>(empleado)) {
-cout << "Gerente:" << endl;
-cout << "Nombre: " << gerente->nombre << endl;
-cout << "Apellido: " << gerente->apellido << endl;
-cout << "Dirección: " << gerente->direccion << endl;
-cout << "Fecha de nacimiento: " << gerente->fechaNacimiento << endl;
-cout << "Género: " << gerente->sexo << endl;
-cout << "--------------------------------" << endl;
-} else if (auto jefeDeArea = dynamic_cast<JefeDeArea*>(empleado)) {
-cout << "Jefe de Área:" << endl;
-cout << "Nombre: " << jefeDeArea->nombre << endl;
-cout << "Apellido: " << jefeDeArea->apellido << endl;
-cout << "Dirección: " << jefeDeArea->direccion << endl;
-cout << "Fecha de nacimiento: " << jefeDeArea->fechaNacimiento << endl;
-cout << "Género: " << jefeDeArea->sexo << endl;
-cout << "--------------------------------" << endl;
-} else if (auto tecnico = dynamic_cast<Tecnico*>(empleado)) {
-cout << "Técnico:" << endl;
-cout << "Nombre: " << tecnico->nombre << endl;
-cout << "Nombre: " << tecnico->apellido << endl;
-cout << "Dirección: " << tecnico->direccion << endl;
-cout << "Fecha de nacimiento: " << tecnico->fechaNacimiento << endl;
-cout << "Género: " << tecnico->sexo << endl;
-cout << "--------------------------------" << endl;
-} else if (auto supervisor = dynamic_cast<Supervisor*>(empleado)) {
-cout << "Supervisor:" << endl;
-cout << "Nombre: " << supervisor->nombre << endl;
-cout << "Nombre: " << supervisor->apellido << endl;
-cout << "Dirección: " << supervisor->direccion << endl;
-cout << "Fecha de nacimiento: " << supervisor->fechaNacimiento << endl;
-cout << "Género: " << supervisor->sexo << endl;
-cout << "--------------------------------" << endl;
-}
-}
-*/
