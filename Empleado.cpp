@@ -19,6 +19,8 @@ public:
 
     virtual double calcularSalario() = 0;
 
+    virtual string getJerarquia() = 0;
+
 };
 
 class Gerente : public Empleado
@@ -36,6 +38,9 @@ public:
         return sueldo - (sueldo * 0.075) - (sueldo * 0.0775);
     }
 
+ string getJerarquia() override {
+        return "Gerente";
+    }
 };
 
 class Tecnico : public Empleado
