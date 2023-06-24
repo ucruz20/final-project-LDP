@@ -91,11 +91,19 @@ bool compararPorSalario(Empleado *emp1, Empleado *emp2)
 {
     return emp1->calcularSalario() > emp2->calcularSalario();
 }
+bool compararPorSalarioMenor(Empleado *emp1, Empleado *emp2)
+{
+    return emp1->calcularSalario() < emp2->calcularSalario();
+}
 
 // Función para ordenar los empleados por salario
 void ordenarEmpleadosPorSalario(vector<Empleado *> &empleados)
 {
     std::sort(empleados.begin(), empleados.end(), compararPorSalario);
+}
+void ordenarEmpleadosPorSalarioMenor(vector<Empleado *> &empleados)
+{
+    std::sort(empleados.begin(), empleados.end(), compararPorSalarioMenor);
 }
 
 // Función para crear objetos de empleados a partir de un archivo
@@ -155,9 +163,10 @@ int main()
         empleados = crearEmpleadosDesdeArchivo("empleados.txt");
         cout << "----- MENÚ -----" << endl;
         cout << "1. Ordenar empleados por nombre" << endl;
-        cout << "2. Ordenar empleados por salario" << endl;
-        cout << "3. Mostrar de empleados por rol" << endl;
-        cout << "4. Agregar nuevo empleado" << endl;
+        cout << "2. Ordenar empleados por salario (mayor a menor)" << endl;
+        cout << "3. Ordenar empleados por salario (menor a mayor)" << endl;
+        cout << "4. Mostrar de empleados por rol" << endl;
+        cout << "5. Agregar nuevo empleado" << endl;
         cout << "0. Salir" << endl;
         cout << "Ingrese una opción: ";
         cin >> opcion;
@@ -196,12 +205,27 @@ int main()
             }
             break;
 
-            break;
         case 3:
+            ordenarEmpleadosPorSalarioMenor(empleados);
+            cout << "Empleados ordenados por salario:" << endl;
+            for (const auto &empleado : empleados)
+            {
+                cout << "Apellido: " << empleado->getApellido() << endl;
+                cout << "Nombre: " << empleado->getNombre() << endl;
+                cout << "Dirección: " << empleado->getDireccion() << endl;
+                cout << "Fecha de nacimiento: " << empleado->getFechaNacimiento() << endl;
+                cout << "Género: " << empleado->getSexo() << endl;
+                cout << "Salario base: " << empleado->getSueldo() << endl;
+                cout << "Jerarquia: " << empleado->getRol() << endl;
+                cout << "Salario neto: " << empleado->calcularSalario() << endl;
+                cout << endl;
+            }
+            break;
+        case 4:
             // Mostrar la cantidad de objetos por subclase
             mostrarCantidadObjetosPorSubclase(empleados);
             break;
-        case 4:
+        case 5:
             agregarEmpleadoAArchivo("empleados.txt");
             cout << "Nuevo empleado agregado." << endl;
             break;

@@ -9,3 +9,4 @@ Tecnico,Laura ,García, 321 Birch St, 25/11/1993, Femenino
 Gerente,edgardo,alfaro,new york,05/5/1993,masculino
 Tecnico,Ernesto,Morales,guadalajara,10/15/1995,masculino
 Tecnico,Martin,Rosales,Washington,05/11/1999,masculino
+Gerente,Jose Manuel,Medrano,Bo la cruz,12/01/1997,Masculino
