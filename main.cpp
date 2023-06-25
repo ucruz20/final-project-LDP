@@ -78,6 +78,7 @@ void mostrarCantidadObjetosPorSubclase(const vector<Empleado *> &empleados)
     cout << "Cantidad de Técnicos: " << cantidadTecnicos << endl;
     cout << "Cantidad de Jefes de Área: " << cantidadJefesDeArea << endl;
     cout << "Cantidad de Supervisores: " << cantidadSupervisores << endl;
+    cout << "total de empleados: " << empleados.size(); 
 }
 
 // Comparador para ordenar los empleados alfabéticamente por nombre
