@@ -6,4 +6,11 @@ project(ProyectoFinalLDP)
 
 # Agrega aquí la lista de archivos fuente de tu proyecto
 
-add_executable(ProyectoEjecutable main.cpp Empleado.cpp)
+add_executable(ProyectoEjecutable
+    main.cpp
+    src/class/Empleado.cpp
+    src/class/Tecnico.cpp
+    src/class/Gerente.cpp
+    src/class/JefeDeArea.cpp
+    src/class/Supervisor.cpp
+)
