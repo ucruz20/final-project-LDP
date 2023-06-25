@@ -162,7 +162,7 @@ int main()
     {
         empleados = crearEmpleadosDesdeArchivo("empleados.txt");
         cout << "----- MENÚ -----" << endl;
-        cout << "1. Ordenar empleados por nombre" << endl;
+        cout << "1. Ordenar empleados por primer apellido" << endl;
         cout << "2. Ordenar empleados por salario (mayor a menor)" << endl;
         cout << "3. Ordenar empleados por salario (menor a mayor)" << endl;
         cout << "4. Mostrar de empleados por rol" << endl;
