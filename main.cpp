@@ -234,7 +234,7 @@ int main()
             cout << "¡Hasta luego!" << endl;
             break;
         default:
-            cout << "Opción inválida." << endl;
+            cout << "La opción que seleccionaste no esta en el menu." << endl;
             break;
         }
 

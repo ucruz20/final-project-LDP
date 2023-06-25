@@ -13,3 +13,6 @@ g++ -o proyectoEjecutable main.cpp src/class/JefeDeArea.cpp src/class/Supervisor
 3-dentro de la carpeta build ejecutar el siguiente comando: cmake ..
 4- dentro de la misma carpeta ejecutar cmake --build .
 5- Para ejecutar el archivo resultante, ./ProyectoEjecutable.
+
+# importante
+
